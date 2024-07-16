@@ -24,4 +24,4 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    op.execute("DELETE ${table_name}")
+    op.execute("DELETE TABLE ${table_name}")
