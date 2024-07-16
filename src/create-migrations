@@ -8,5 +8,6 @@ run_migration () {
     alembic revision -m "$message"
 }
 
+# Update the code below. Add as many lines as you want.
 run_migration foo_table /tmp/ddl.sql
 
