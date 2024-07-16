@@ -1,6 +1,5 @@
-import functions
+from alembic_api import sum_int
 
 
 if __name__ == "__main__":
-
-    functions.greet()
+    sum_int(1, 2)
