@@ -9,5 +9,6 @@ run_migration () {
 }
 
 # Update the code below. Add as many lines as you want.
-run_migration foo_table /tmp/ddl.sql
+run_migration foo ddls/foo.sql
+run_migration bar ddls/bar.sql
 
