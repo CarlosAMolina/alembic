@@ -6,7 +6,6 @@ run_migration () {
     message="Add ${TABLE_NAME}"
     echo "[DEBUG] Starting migration message: $message"
     alembic revision -m "$message"
-  echo "Hello $1"
 }
 
 run_migration foo_table /tmp/ddl.sql
