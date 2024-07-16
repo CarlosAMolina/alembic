@@ -29,6 +29,7 @@ target_metadata = None
 # TODO rm somearg
 template_args_custom = {
     "somearg": "somevalue",
+    "table_name": "foo.bar",
     "ddl": """
     create foo.bar
     column a
