@@ -1,3 +1,5 @@
+import os
+import re
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -25,10 +27,13 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-# https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
-with open("/tmp/ddl.sql", "r") as f:
+ddl_path_name = os.environ["DDL_PATH"]
+with open(ddl_path_name, "r") as f:
     ddl = f.read()
-template_args_custom = {"table_name": "foo.bar", "ddl": ddl}
+table_name = re.search(r".*table\s+(.*)\s+\(", ddl, re.IGNORECASE).group(1)
+assert len(table_name) > 0
+# https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
+template_args_custom = {"table_name": table_name, "ddl": ddl}
 
 
 def run_migrations_offline() -> None:

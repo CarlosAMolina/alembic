@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export DDL_PATH=/tmp/ddl.sql
+alembic revision -m "test"
