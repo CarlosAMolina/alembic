@@ -26,16 +26,9 @@ target_metadata = None
 # ... etc.
 
 # https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
-template_args_custom = {
-    "table_name": "foo.bar",
-    "ddl": """
-    create foo.bar
-    column a
-    column b
-
-    charset latin1
-""",
-}
+with open("/tmp/ddl.sql", "r") as f:
+    ddl = f.read()
+template_args_custom = {"table_name": "foo.bar", "ddl": ddl}
 
 
 def run_migrations_offline() -> None:
