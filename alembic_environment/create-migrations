@@ -1,7 +1,13 @@
 #!/bin/bash
 
-export DDL_PATH=/tmp/ddl.sql
-export TABLE_NAME=foo_table
-message="Add ${TABLE_NAME}"
-echo "[DEBUG] Starting migration message: $message"
-alembic revision -m "$message"
+run_migration () {
+    export TABLE_NAME=$1
+    export DDL_PATH=$2
+    message="Add ${TABLE_NAME}"
+    echo "[DEBUG] Starting migration message: $message"
+    alembic revision -m "$message"
+  echo "Hello $1"
+}
+
+run_migration foo_table /tmp/ddl.sql
+
