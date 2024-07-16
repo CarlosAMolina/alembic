@@ -19,8 +19,8 @@ depends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}
 
 
 def upgrade() -> None:
-    op.execute("""${ddl}""")
-
+    op.execute("""
+${ddl}""")
 
 
 def downgrade() -> None:
