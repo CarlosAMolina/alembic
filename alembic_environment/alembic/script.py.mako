@@ -22,6 +22,7 @@ def upgrade() -> None:
     op.execute({TABLE_DDL})
     ${somearg}
     ${repr(somearg)}
+    ${repr(ddl)}
 
 
 def downgrade() -> None:

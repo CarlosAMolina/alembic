@@ -26,7 +26,17 @@ target_metadata = None
 # ... etc.
 
 # https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
-template_args_custom = {"somearg": "somevalue"}
+# TODO rm somearg
+template_args_custom = {
+    "somearg": "somevalue",
+    "ddl": """
+    create foo.bar
+    column a
+    column b
+
+    charset latin1
+""",
+}
 
 
 def run_migrations_offline() -> None:
