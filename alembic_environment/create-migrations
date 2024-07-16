@@ -1,4 +1,7 @@
 #!/bin/bash
 
 export DDL_PATH=/tmp/ddl.sql
-alembic revision -m "test"
+export TABLE_NAME=foo_table
+message="Add ${TABLE_NAME}"
+echo "[DEBUG] Starting migration message: $message"
+alembic revision -m "$message"

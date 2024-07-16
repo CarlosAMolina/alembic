@@ -1,5 +1,4 @@
 import os
-import re
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -28,10 +27,11 @@ target_metadata = None
 # ... etc.
 
 ddl_path_name = os.environ["DDL_PATH"]
+table_name = os.environ["TABLE_NAME"]
 with open(ddl_path_name, "r") as f:
     ddl = f.read()
-table_name = re.search(r".*table\s+(.*)\s+\(", ddl, re.IGNORECASE).group(1)
 assert len(table_name) > 0
+assert table_name in ddl
 # https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
 template_args_custom = {"table_name": table_name, "ddl": ddl}
 
