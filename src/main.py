@@ -1,5 +1,5 @@
-from alembic_api import sum_int
+from alembic_api import create_migration
 
 
 if __name__ == "__main__":
-    sum_int(1, 2)
+    create_migration()
