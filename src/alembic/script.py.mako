@@ -24,4 +24,4 @@ ${ddl}""")
 
 
 def downgrade() -> None:
-    op.execute("DELETE TABLE ${table_name}")
+    op.execute("DROP TABLE ${table_name};")
