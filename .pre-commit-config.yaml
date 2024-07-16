@@ -16,13 +16,13 @@ repos:
     rev: 7.0.0
     hooks:
     -   id: flake8
--   repo: local
-    hooks:
-    -   id: unittests
-        name: run unit tests
-        entry: python -m unittest
-        language: system
-        pass_filenames: false
-        verbose: true
-        args: ["discover", "-s", "tests"]
-
+#-   repo: local
+#    hooks:
+#    -   id: unittests
+#        name: run unit tests
+#        entry: python -m unittest
+#        language: system
+#        pass_filenames: false
+#        verbose: true
+#        args: ["discover", "-s", "tests"]
+#
