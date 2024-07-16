@@ -19,8 +19,8 @@ depends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}
 
 
 def upgrade() -> None:
-    op.execute({TABLE_DDL})
-    ${repr(ddl)}
+    op.execute(${repr(ddl)})
+
 
 
 def downgrade() -> None:
