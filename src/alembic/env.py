@@ -26,14 +26,18 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-ddl_path_name = os.environ["DDL_PATH"]
-table_name = os.environ["TABLE_NAME"]
-with open(ddl_path_name, "r") as f:
-    ddl = f.read()
-assert len(table_name) > 0
-assert table_name in ddl
-# https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
-template_args_custom = {"table_name": table_name, "ddl": ddl}
+try:
+    ddl_path_name = os.environ["DDL_PATH"]
+    table_name = os.environ["TABLE_NAME"]
+    with open(ddl_path_name, "r") as f:
+        ddl = f.read()
+    assert len(table_name) > 0
+    assert table_name in ddl
+    # https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
+    template_args_custom = {"table_name": table_name, "ddl": ddl}
+except KeyError:
+    # Commands like `alembic history` do not require custom template args.
+    template_args_custom = {}
 
 
 def run_migrations_offline() -> None:
