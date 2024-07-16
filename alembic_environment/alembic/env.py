@@ -26,9 +26,7 @@ target_metadata = None
 # ... etc.
 
 # https://github.com/sqlalchemy/alembic/discussions/1162#discussioncomment-4836182
-# TODO rm somearg
 template_args_custom = {
-    "somearg": "somevalue",
     "table_name": "foo.bar",
     "ddl": """
     create foo.bar
