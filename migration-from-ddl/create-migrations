@@ -8,7 +8,7 @@ run_migration () {
     alembic revision -m "$message"
 }
 
-# Update the code below. Add as many lines as you want.
+# Update the code below with your table names and ddl paths.
 run_migration foo ddls/foo.sql
 run_migration bar ddls/bar.sql
 
