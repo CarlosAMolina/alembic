@@ -1,4 +1,4 @@
 # Python
 env/
-src/alembic/versions/
+*/alembic/versions/
 __pycache__/
