@@ -1,3 +1,6 @@
+alembic-autogenerate-first:
+	alembic revision --autogenerate -m "add customers model"
+
 alembic-downgrade:
 	alembic downgrade -1
 
